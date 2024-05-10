@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:maps_app/pages/map_page.dart';
+import 'package:maps_app/pages/auth_page.dart';
+import 'package:maps_app/pages/page_image_selection.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +33,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-       home: MapPage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => AuthPage(),
+        '/image_selection': (context) => ImageSelectionPage() ,
+      },
     );
   }
 }
