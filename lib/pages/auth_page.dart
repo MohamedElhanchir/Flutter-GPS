@@ -10,8 +10,8 @@ class AuthPage extends StatefulWidget {
 class _AuthPageState extends State<AuthPage> {
   TextEditingController _usernameController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
-  final String validUsername = 'admin';
-  final String validPassword = 'admin';
+  final String validUsername = 'elhanchir';
+  final String validPassword = '1234';
 
   void _login() {
     String enteredUsername = _usernameController.text;

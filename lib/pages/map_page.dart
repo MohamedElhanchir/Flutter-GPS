@@ -1,24 +1,16 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class MapPage extends StatefulWidget {
-  final LatLng? currentP;
-  final String? imagePath;
+class MapPage extends StatelessWidget {
+  final double latitude;
+  final double longitude;
+  final Function resetCoordinates;
 
-  MapPage({this.currentP, this.imagePath});
-
-  @override
-  _MapPageState createState() => _MapPageState();
-}
-
-class _MapPageState extends State<MapPage> {
-  GoogleMapController? mapController;
-
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
-  }
+  MapPage({
+    required this.latitude,
+    required this.longitude,
+    required this.resetCoordinates,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,24 +18,27 @@ class _MapPageState extends State<MapPage> {
       appBar: AppBar(
         title: Text('Map Page'),
       ),
-      body: Column(
-        children: [
-          if (widget.currentP != null)
-            Container(
-              height: 300, // adjust the height as needed
-              child: GoogleMap(
-                onMapCreated: _onMapCreated,
-                initialCameraPosition: CameraPosition(
-                  target: widget.currentP!,
-                  zoom: 15.0,
-                ),
-              ),
-            ),
-          Text('Latitude: ${widget.currentP?.latitude}, Longitude: ${widget.currentP?.longitude}'),
-          widget.imagePath != null
-              ? Image.file(File(widget.imagePath!))
-              : Text('Aucune image sélectionnée'),
-        ],
+      body: GoogleMap(
+        initialCameraPosition: CameraPosition(
+          target: (latitude != 0 && longitude != 0) 
+        ? LatLng(latitude, longitude) :LatLng(33.695838, -7.389329),
+          zoom: 15,
+        ),
+        markers: (latitude != 0 && longitude != 0)
+            ? {
+          Marker(
+            markerId: MarkerId('photo_location'),
+            position: LatLng(latitude, longitude),
+          )
+        }
+            : {},
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          resetCoordinates();
+          Navigator.pop(context);
+        },
+        child: Icon(Icons.arrow_back),
       ),
     );
   }
