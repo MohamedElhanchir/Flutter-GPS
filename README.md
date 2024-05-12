@@ -4,16 +4,28 @@ Ce projet est une application Flutter qui permet de choisir une photo depuis la 
 
 ## Fonctionnalités
 
-- Authentification avec le nom d'utilisateur **elhanchir** et le mot de passe **1234**
--  ![Authentification](images/authentification.png)
-- Sélectionner une photo depuis la galerie
-- ![Menu](images/menu.png)
-- ![Choisir une photo](images/menu.png)
-- Prendre une nouvelle photo avec l'appareil photo
-- Afficher la position de la photo sur une carte Google Maps si des données de géolocalisation sont disponibles
-- ![La position de la photo](images/img_1.png)
-- Afficher la carte sans position si aucune donnée de géolocalisation n'est disponible
-- ![Aucun photo choisi](images/img_2.png)
+- **Authentification avec le nom d'utilisateur *elhanchir* et le mot de passe *1234* :**
+
+  ![Authentification](images/authentification.png)
+
+- **Sélectionner une photo depuis la galerie :**
+
+  ![Menu](images/menu.png)
+
+  ![Choisir une photo](images/choisir_photo.png)
+
+- **Prendre une nouvelle photo avec l'appareil photo :**
+
+  ![Prendre une photo](images/prendre_photo.png)
+
+- **Afficher la position de la photo sur une carte Google Maps si des données de géolocalisation sont disponibles :**
+
+  ![La position de la photo](images/position_photo.png)
+
+- **Afficher la carte sans position si aucune donnée de géolocalisation n'est disponible :**
+
+  ![Aucune photo choisie](images/aucune_photo.png)
+
 
 ## Dépendances
 
